@@ -1,0 +1,20 @@
+.filters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters > div {
+  display: grid;
+  text-align: start;
+  gap: 5px;
+}
+
+.filters .price-filter .price-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-filter > div {
+  display: grid;
+  align-items: flex-end;
+}
