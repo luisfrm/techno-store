@@ -9,8 +9,7 @@ import {
 // create context
 export const CartContext = createContext();
 
-const INITIAL_STATE = [];
-
+const INITIAL_STATE = JSON.parse(localStorage.cart) ?? [];
 
 // create provider
 const CartProvider = ({ children }) => {

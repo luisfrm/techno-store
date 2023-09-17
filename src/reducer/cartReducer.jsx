@@ -11,17 +11,22 @@ const cartReducer = (state, action) => {
 			if (productInCartIndex > -1) {
 				const newState = structuredClone(state);
 				newState[productInCartIndex].quantity += 1;
+				localStorage.setItem("cart", JSON.stringify(newState));
 				return newState;
 			}
-
-			return [...state, { ...payload, quantity: 1 }];
+			const newState = [...state, { ...payload, quantity: 1 }]
+			localStorage.setItem("cart", JSON.stringify(newState));
+			return newState;
 		}
 
 		case cartReducerActions.REMOVE_FROM_CART: {
-			return state.filter((item) => item.id !== payload.id);
+			const newState = state.filter((item) => item.id !== payload.id);
+			localStorage.setItem("cart", JSON.stringify(newState));
+			return newState;
 		}
 
 		case cartReducerActions.CLEAR_CART:
+			localStorage.setItem("cart", JSON.stringify([]));
 			return [];
 	}
 
